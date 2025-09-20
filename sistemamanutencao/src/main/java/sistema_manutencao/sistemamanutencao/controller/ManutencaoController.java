@@ -27,6 +27,12 @@ public class ManutencaoController {
     @Autowired
     SolicitacaoRepository solicitacaoRepository;
 
+    // NOVO MÉTODO PARA A PÁGINA INICIAL
+    @GetMapping("/")
+    public String home() {
+        return "home";
+    }
+
     @GetMapping
     public ModelAndView listar() {
         return new ModelAndView(
@@ -42,7 +48,7 @@ public class ManutencaoController {
     @PostMapping("/cadastrar")
     public String cadastrar(@Valid Solicitacao solicitacao, BindingResult result) {
         if (result.hasErrors()) {
-            return "form"; // Se houver erro, volta para o form.html
+            return "form";
         }
         solicitacaoRepository.save(solicitacao);
         return "redirect:/solicitacoes";
