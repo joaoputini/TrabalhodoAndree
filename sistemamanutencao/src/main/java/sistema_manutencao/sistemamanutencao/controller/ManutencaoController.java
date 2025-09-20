@@ -27,12 +27,6 @@ public class ManutencaoController {
     @Autowired
     SolicitacaoRepository solicitacaoRepository;
 
-    // NOVO MÉTODO PARA A PÁGINA INICIAL
-    @GetMapping("/")
-    public String home() {
-        return "home";
-    }
-
     @GetMapping
     public ModelAndView listar() {
         return new ModelAndView(
